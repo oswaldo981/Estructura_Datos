@@ -42,6 +42,7 @@ public class lista_doble {
 			nodo_m nuevo=new nodo_m();
 			nuevo.setValores(valor);
 			nuevo.setSiguiente(this.cabeza);
+			this.cabeza.setAnterior(nuevo);
 			nuevo.setAnterior(null);
 			this.cabeza=nuevo;
 		}
