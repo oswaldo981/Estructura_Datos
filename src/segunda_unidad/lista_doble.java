@@ -47,16 +47,51 @@ public class lista_doble {
 		}
 		
 	}
+	public void insertarFinal(musica valor)
+	{
+		if(this.isVacio())
+		{
+			this.insertar(valor);
+		}
+		else {
+			nodo_m nuevo=new nodo_m();
+			nuevo.setValores(valor);
+			nuevo.setSiguiente(this.cabeza);
+			
+			nodo_m temp=this.cabeza;
+			while(temp.getSiguiente()!=null)
+			{
+				temp=temp.getSiguiente();			
+				
+			}
+			nuevo.setAnterior(temp);
+			temp.setSiguiente(nuevo);
+		}
+	}
 	public StringBuilder imprimir()
 	{
 		StringBuilder cadena=new StringBuilder();
-		cadena.append("Cabeza<====>");
+		cadena.append("Cabeza---->");
 		nodo_m temp=this.cabeza;
 		while(temp!=null)
 		{
 			cadena.append(temp.getValores().getCancion());
-			cadena.append("<====>");
+			cadena.append("---->");
 			temp=temp.getSiguiente();			
+		}
+		cadena.append("NULL");
+		return cadena;
+	}
+	public StringBuilder imprimir_anterior()
+	{
+		StringBuilder cadena=new StringBuilder();
+		cadena.append("Cabeza<====>");
+		nodo_m temp=null;
+		while(temp==this.cabeza)
+		{
+			cadena.append(temp.getValores().getCancion());
+			cadena.append("<====>");
+			temp=temp.getAnterior();			
 		}
 		cadena.append("NULL");
 		return cadena;

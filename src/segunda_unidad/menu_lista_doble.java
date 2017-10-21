@@ -24,6 +24,8 @@ public class menu_lista_doble {
 	private JTextField album;
 	private JTextField id;
 	private JTextField genero;
+	private JButton  ingresar_principio;
+	private JButton ingresar_final;
 	lista_doble lista=new lista_doble();
 
 	/**
@@ -144,18 +146,48 @@ public class menu_lista_doble {
 		lblING.setBounds(66, 11, 282, 31);
 		ingresar.add(lblING);
 		
-		JButton btnNewButton = new JButton("Ingresar Principio");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton aceptar_final = new JButton("Aceptar");
+		aceptar_final.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ingresar.setVisible(true);
+				musica valor=new musica();
+				nodo_m llenar=new nodo_m();
+				String album_,genero_,artista_,nombre_,id_;
+				valor.setAlbum(album.getText());		
+				valor.setGenero(genero.getText());
+				valor.setArtista(artista.getText());
+				valor.setCancion(nombre.getText());
+				valor.setId(id.getText());	
+				lista.insertarFinal(valor);
+				JOptionPane.showMessageDialog(null, "Datos insertados correctamente");
 			}
 		});
-		btnNewButton.setBounds(10, 86, 166, 23);
-		frame.getContentPane().add(btnNewButton);
+		aceptar_final.setBounds(29, 291, 166, 23);
+		ingresar.add(aceptar_final);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(10, 138, 166, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		 ingresar_principio = new JButton("Ingresar Principio");
+		ingresar_principio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnAceptar_in_p.setVisible(true);
+				ingresar_principio.setBackground(Color.GREEN);
+				ingresar_final.setBackground(Color.WHITE);
+				aceptar_final.setVisible(false);
+			}
+		});
+		ingresar_principio.setBounds(10, 86, 166, 23);
+		frame.getContentPane().add(ingresar_principio);
+		
+		 ingresar_final = new JButton("Ingresar Final");
+		ingresar_final.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnAceptar_in_p.setVisible(false);
+				ingresar_final.setBackground(Color.GREEN);
+				ingresar_principio.setBackground(Color.WHITE);
+				aceptar_final.setVisible(true);
+				
+			}
+		});
+		ingresar_final.setBounds(10, 138, 166, 23);
+		frame.getContentPane().add(ingresar_final);
 		
 		JButton btnNewButton_2 = new JButton("New button");
 		btnNewButton_2.setBounds(10, 186, 166, 23);
@@ -165,9 +197,14 @@ public class menu_lista_doble {
 		btnNewButton_3.setBounds(10, 236, 166, 23);
 		frame.getContentPane().add(btnNewButton_3);
 		
-		JButton btnNewButton_4 = new JButton("New button");
-		btnNewButton_4.setBounds(10, 287, 166, 23);
-		frame.getContentPane().add(btnNewButton_4);
+		JButton imprimir_a = new JButton("Imprimir Atras");
+		imprimir_a.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null,lista.imprimir_anterior());
+			}
+		});
+		imprimir_a.setBounds(10, 287, 166, 23);
+		frame.getContentPane().add(imprimir_a);
 		
 		JButton btnImprimir = new JButton("Imprimir");
 		btnImprimir.addActionListener(new ActionListener() {
