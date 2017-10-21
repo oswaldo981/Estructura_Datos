@@ -56,7 +56,7 @@ public class lista_doble {
 		else {
 			nodo_m nuevo=new nodo_m();
 			nuevo.setValores(valor);
-			nuevo.setSiguiente(this.cabeza);
+			nuevo.setSiguiente(null);
 			
 			nodo_m temp=this.cabeza;
 			while(temp.getSiguiente()!=null)
@@ -64,8 +64,9 @@ public class lista_doble {
 				temp=temp.getSiguiente();			
 				
 			}
-			nuevo.setAnterior(temp);
 			temp.setSiguiente(nuevo);
+			nuevo.setAnterior(temp);
+			
 		}
 	}
 	public StringBuilder imprimir()
@@ -85,15 +86,18 @@ public class lista_doble {
 	public StringBuilder imprimir_anterior()
 	{
 		StringBuilder cadena=new StringBuilder();
-		cadena.append("Cabeza<====>");
-		nodo_m temp=null;
-		while(temp==this.cabeza)
+		cadena.append("null<====>");
+		nodo_m temp=this.cabeza;
+		while(temp.getSiguiente()!=null)
 		{
-			cadena.append(temp.getValores().getCancion());
-			cadena.append("<====>");
-			temp=temp.getAnterior();			
+			temp=temp.getSiguiente();			
 		}
-		cadena.append("NULL");
+		while(temp!=null)
+		{
+			cadena.append(temp.getValores().getCancion()+"<=====>");
+			temp=temp.getAnterior();
+		}
+		cadena.append("cabeza");
 		return cadena;
 	}
 }

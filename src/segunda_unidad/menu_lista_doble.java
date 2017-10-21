@@ -159,6 +159,11 @@ public class menu_lista_doble {
 				valor.setId(id.getText());	
 				lista.insertarFinal(valor);
 				JOptionPane.showMessageDialog(null, "Datos insertados correctamente");
+				album.setText(null);
+				genero.setText(null);
+				artista.setText(null);
+				nombre.setText(null);
+				id.setText(null);
 			}
 		});
 		aceptar_final.setBounds(29, 291, 166, 23);
