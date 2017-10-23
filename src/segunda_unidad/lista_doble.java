@@ -101,4 +101,42 @@ public class lista_doble {
 		cadena.append("cabeza");
 		return cadena;
 	}
+	/*public nodo_m encontrar(int posicion)
+	{
+		nodo_m temporal=this.cabeza;
+		nodo_m anterior=null;
+		int i=0;
+		while(i<posicion)
+		{
+			i++;
+			anterior=temporal;
+			temporal=temporal.getSiguiente();
+		}
+		return anterior;
+	}*/
+	public boolean eliminar_principio()
+	{
+		boolean respuesta=false;
+		nodo_m temp = this.cabeza;
+		if(isVacio())
+		{
+			respuesta=false;
+		}
+		if(temp.getSiguiente()!=null)
+		{
+				this.cabeza=temp.getSiguiente();
+				this.cabeza.getAnterior().setSiguiente(null);
+				temp.setAnterior(null);
+				respuesta=true;
+				
+		}
+		else {
+			temp.setAnterior(null);
+			temp.setSiguiente(null);
+			this.cabeza=null;
+			respuesta=true;
+		}
+		return respuesta;
+		
+	}
 }

@@ -194,9 +194,27 @@ public class menu_lista_doble {
 		ingresar_final.setBounds(10, 138, 166, 23);
 		frame.getContentPane().add(ingresar_final);
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setBounds(10, 186, 166, 23);
-		frame.getContentPane().add(btnNewButton_2);
+		JButton borrarP = new JButton("Borrar Principio");
+		borrarP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+				if(lista.eliminar_principio())
+				{
+					JOptionPane.showMessageDialog(null, "Datos Eliminados");
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "NO existen datos a eliminar");
+				}
+				}
+				catch(NullPointerException e)
+				{
+					JOptionPane.showMessageDialog(null, "NO existen datos para eliminar");
+				}
+			}
+		});
+		borrarP.setBounds(10, 186, 166, 23);
+		frame.getContentPane().add(borrarP);
 		
 		JButton btnNewButton_3 = new JButton("New button");
 		btnNewButton_3.setBounds(10, 236, 166, 23);
