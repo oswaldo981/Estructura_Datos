@@ -216,9 +216,28 @@ public class menu_lista_doble {
 		borrarP.setBounds(10, 186, 166, 23);
 		frame.getContentPane().add(borrarP);
 		
-		JButton btnNewButton_3 = new JButton("New button");
-		btnNewButton_3.setBounds(10, 236, 166, 23);
-		frame.getContentPane().add(btnNewButton_3);
+		JButton borrar_final = new JButton("Borrar Final");
+		borrar_final.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//JOptionPane.showMessageDialog(null, lista.contar());
+				try{
+					if(lista.eliminar_final())
+					{
+						JOptionPane.showMessageDialog(null, "Datos Eliminados");
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "NO existen datos a eliminar");
+					}
+				}
+				catch(NullPointerException e)
+				{
+					JOptionPane.showMessageDialog(null, "NO existen datos para eliminar");
+				}
+				
+			}
+		});
+		borrar_final.setBounds(10, 236, 166, 23);
+		frame.getContentPane().add(borrar_final);
 		
 		JButton imprimir_a = new JButton("Imprimir Atras");
 		imprimir_a.addActionListener(new ActionListener() {

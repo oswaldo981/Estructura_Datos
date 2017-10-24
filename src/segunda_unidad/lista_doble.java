@@ -101,7 +101,7 @@ public class lista_doble {
 		cadena.append("cabeza");
 		return cadena;
 	}
-	/*public nodo_m encontrar(int posicion)
+	public nodo_m encontrar(int posicion)
 	{
 		nodo_m temporal=this.cabeza;
 		nodo_m anterior=null;
@@ -113,7 +113,18 @@ public class lista_doble {
 			temporal=temporal.getSiguiente();
 		}
 		return anterior;
-	}*/
+	}
+	public int contar()
+	{
+		int respuesta=0;
+		nodo_m temporal=this.cabeza;
+		while(temporal!=null)
+		{
+			respuesta++;
+			temporal=temporal.getSiguiente();		
+			}
+		return respuesta;
+	}
 	public boolean eliminar_principio()
 	{
 		boolean respuesta=false;
@@ -138,5 +149,23 @@ public class lista_doble {
 		}
 		return respuesta;
 		
+	}
+	public boolean eliminar_final()
+	{
+		boolean respuesta=false;
+		if(isVacio())
+		{
+			respuesta=false;
+		}
+		else {
+			nodo_m temp=this.encontrar(this.contar()-1);
+			temp.setSiguiente(temp.getSiguiente().getSiguiente());
+			respuesta=true;
+			
+		}
+		
+		
+		
+		return respuesta;
 	}
 }
